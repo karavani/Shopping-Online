@@ -1,0 +1,38 @@
+
+
+div{    
+/* text-align: center; */
+margin: auto;
+/* catches the full space to the end of the screen */
+display: block;  
+}
+
+form{
+column-span: all;
+font-size: x-large;
+}
+mat-form-field{
+  width:100%;
+}
+
+
+:host {
+background-color: white;
+box-shadow: rgb(43, 42, 42) 3px 5px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin: 10px;
+padding: 14px;
+border-radius: 2px;
+height: 80%;
+}
+
+
+  /* On screens that are 600px or less */
+  @media screen and (max-width: 900px) {
+   form{
+     font-size: larger;
+   }
+        
+    }

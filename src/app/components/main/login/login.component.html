@@ -1,0 +1,33 @@
+<div>
+    <i class="fas fa-user-alt"></i>
+    <div [hidden]="!success">
+        <h5 [hidden]="!success">{{openCartMessage}}</h5>
+        <button [hidden]="!success" mat-raised-button color="primary" (click)="startShopping()">{{startShoppingButtonValue}}</button>
+    </div>
+
+    
+<form [formGroup]='loginForm' (ngSubmit)='login()' [hidden]="success">
+    
+<div class="loginContainer">
+    <mat-form-field>
+        <input matInput placeholder="userName" formControlName='userName'>
+
+        <mat-error *ngIf='userName.invalid && userName.touched'>
+            Your user name does not look right
+        </mat-error>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="password" formControlName='password'>
+
+        <mat-error *ngIf='password.invalid && password.touched'>
+            Password requierd
+        </mat-error>
+    </mat-form-field>
+    </div>
+    <br>
+    <button mat-raised-button [disabled]="loginForm.invalid" color='primary'>Sign in</button> <br>
+    <hr>
+    <mat-hint>Don't have an account yet?<a routerLink="/register">sign up</a></mat-hint>
+</form>
+
+</div>

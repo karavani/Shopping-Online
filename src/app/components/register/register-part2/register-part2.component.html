@@ -1,0 +1,112 @@
+<!-- 
+<div class="regiterContainer">
+    
+    <form #regiterForm="ngForm" [formGroup]="regiterFormGroup" (submit)="register()">
+        <h1 *ngIf="regiterForm.form.invalid"><span class="steps">1 - <span class="currentStep">2</span></span> - <i class="fas fa-check"></i></h1>
+        <h1 *ngIf="!regiterForm.form.invalid"><span class="steps">1 - 2 - </span><span class="currentStep"><i class="fas fa-check"></i></span></h1>
+
+        <details class="city-select">
+            <summary class="radios" >
+                <input type="radio" name="item" id="default" title="City..." checked style="color: gray;" >
+                <input type="radio" name="item" id="item1" (change)="onItemChange($event.target.title)" title="Jeruslam">
+                <input type="radio" name="item" id="item2" (change)="onItemChange($event.target.title)" title="Tel Aviv">
+                <input type="radio" name="item" id="item3" (change)="onItemChange($event.target.title)" title="Haifa">
+                <input type="radio" name="item" id="item4" (change)="onItemChange($event.target.title)" title="Rishon LeZion">
+                <input type="radio" name="item" id="item5" (change)="onItemChange($event.target.title)" title="Petah Tikva">
+                <input type="radio" name="item" id="item6" (change)="onItemChange($event.target.title)" title="Ashdod">
+                <input type="radio" name="item" id="item7" (change)="onItemChange($event.target.title)" title="Netanya">
+                <input type="radio" name="item" id="item8" (change)="onItemChange($event.target.title)" title="Beersheba">
+                <input type="radio" name="item" id="item9" (change)="onItemChange($event.target.title)" title="Bnei Brak">
+                <input type="radio" name="item" id="item10"(change)="onItemChange($event.target.title)"  title="Holon">
+            </summary>
+            <ul class="list">
+                <li>
+                    <label for="item1">Jeruslam</label>
+                </li>
+                <li>
+                    <label for="item2">Tel Aviv</label>
+                </li>
+                <li>
+                    <label for="item3">Haifa</label>
+                </li>
+                <li>
+                    <label for="item4">Rishon LeZion</label>
+                </li>
+                <li>
+                    <label for="item5">Petah Tikva</label>
+                </li>
+                <li>
+                    <label for="item6">Ashdod</label>
+                </li>
+                <li>
+                    <label for="item7">Netanya</label>
+                </li>
+                <li>
+                    <label for="item8">Beersheba</label>
+                </li>
+                <li>
+                    <label for="item9">Bnei Brak</label>
+                </li>
+                <li>
+                    <label for="item10">Holon</label>
+                </li>
+            </ul>
+        </details><br>
+
+        <input type="text" placeholder="Street Address" name="address" [formControl]="addressFormControl"><br>
+
+        <span *ngIf="addressFormControl.errors?.pattern && addressFormControl.touched">address not valid</span><br>
+
+        <input type="text" placeholder="First Name" name="firstName" [formControl]="firstNameFormControl"><br>
+
+        <span *ngIf="firstNameFormControl.errors?.pattern && firstNameFormControl.touched">First Name not
+            valid</span><br>
+
+        <input type="text" placeholder="Last Name" name="lastName" [formControl]="lastNameFormControl"><br>
+
+        <span *ngIf="lastNameFormControl.errors?.pattern && lastNameFormControl.touched">Last Name not valid</span><br>
+
+
+        <button [disabled]="regiterForm.form.invalid && this.city == null ">sign up <i class="fas fa-check"></i></button>
+        <a routerLink="/login" (click)="this.stateService.registerStatus()">cancel</a>
+    </form>
+
+</div> -->
+<div class="registerContainer">
+
+
+    <h1 *ngIf="registerForm.invalid"><span class="steps">1 - <span class="currentStep">2</span></span> - <i class="fas fa-check"></i></h1>
+    <h1 *ngIf="!registerForm.invalid"><span class="steps">1 - 2 - </span><span class="currentStep"><i class="fas fa-check"></i></span></h1>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <mat-select matNativeControl formControlName="city" [(ngModel)]="this.stateService.newUser.city">
+                <mat-option *ngFor="let city of cities" [value]='city'>{{city}}</mat-option>
+            </mat-select><br>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Address" [(ngModel)]="this.stateService.newUser.address" formControlName="address"><br>
+            <mat-error *ngIf='address.invalid && address.touched'>
+                Your address does not look right
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="First Name" [(ngModel)]="this.stateService.newUser.firstName" formControlName="firstName"><br>
+            <mat-error *ngIf="firstName.invalid && firstName.touched">
+                Your password does not look right
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Last Name" [(ngModel)]="this.stateService.newUser.lastName" formControlName="lastName"><br>
+            <mat-error *ngIf="lastName.invalid && lastName.touched">
+                Your lastName does not look right
+            </mat-error>
+        </mat-form-field>
+        <div class="btn-form">
+            <button mat-raised-button [disabled]="registerForm.invalid" color='primary'>next <i
+                    class="fas fa-arrow-right"></i></button>
+            <a routerLink="/login">cancel</a>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="topContainer">
+    <h1>My cart</h1>
+    <div *ngIf="this.cartsService.isInOrder">
+        <button *ngIf="searchText !== null" (click)="delete()"><i class="fas fa-eraser"></i></button>
+        <input #myInput type="text" placeholder="search in cart" (change)="searchInCart()" [(ngModel)]="searchText">
+    </div>
+</div>
+<div class="mainContainer">
+    <div *ngFor="let item of this.cartItemsService.cartItemsMap | keyvalue">
+        <app-product-card [ngClass]='{marked : (item.value.productName.toLowerCase().includes(searchText)) }'
+            id="{{item.value.productName}}" #productCard productName={{item.value.productName}}
+            price={{item.value.totalPrice}}₪ quantity=*{{item.value.quantity}} imageURL={{item.value.imageURL}}
+            iClassName="far fa-trash-alt" (childEvent)="deleteItem(item.value.itemID, item.value.productID)">
+        </app-product-card>
+</div>
+</div>
+<div class="bottomContainer">
+    <h3>total price: {{this.cartItemsService.totalPrice}}₪</h3>
+    <button *ngIf="!this.cartsService.isInOrder" (click)="deleteAllCartItems()"><i class="fas fa-trash"></i></button>
+    <button [disabled]="this.cartItemsService.cartItemsMap.size == 0" (click)="checkout()">{{btnSubText}}</button>
+</div>

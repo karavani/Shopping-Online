@@ -1,0 +1,41 @@
+<div class="registerContainer">
+
+
+    <h1><span class="step">1</span> - 2 - <i class="fas fa-check"></i></h1>
+    <form [formGroup]="registerForm" (ngSubmit)="registerPart1()">
+        <mat-form-field>
+            <input matInput type="number" placeholder="User ID" [(ngModel)]="this.stateService.newUser.id" formControlName="id"><br>
+            <mat-error *ngIf='id.invalid && id.touched'>
+                Your id does not look right
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="User email" [(ngModel)]="this.stateService.newUser.email" formControlName="email"><br>
+            <mat-error *ngIf='email.invalid && email.touched'>
+                Your email does not look right
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password"><br>
+            <mat-error *ngIf="!password.hasError('pattern') && password.invalid && password.touched">
+                Your password does not look right
+            </mat-error>
+            <mat-error *ngIf="password.hasError('pattern') && password.touched">
+                Your password must contain one letter, and numbers
+            </mat-error>
+            <mat-hint>at least one letter, and numbers</mat-hint>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword"><br>
+            <mat-error *ngIf="confirmPassword.invalid && confirmPassword.touched">
+                Your password mismatch
+            </mat-error>
+        </mat-form-field>
+        <div class="btn-form">
+            <button mat-raised-button [disabled]="registerForm.invalid" color='primary'>next <i
+                    class="fas fa-arrow-right"></i></button>
+            <a routerLink="/login">cancel</a>
+        </div>
+    </form>
+
+</div>

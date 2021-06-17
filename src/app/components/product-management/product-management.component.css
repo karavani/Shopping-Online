@@ -1,0 +1,88 @@
+section{
+    height: 100%;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+}
+.topContainer{
+    height: 15%;
+    padding: 10px;
+    font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: black 2px double;
+
+}
+.mainContainer{
+    height: 65%;
+    background-color: white;
+}
+
+.lowContainer{
+    height: 20%;
+}
+form{
+    column-span: all;
+    font-size: x-large;
+    
+    }
+    mat-form-field{
+      width: 100%;
+    }
+    
+    
+    :host {
+    background-color: white;
+    box-shadow: rgb(43, 42, 42) 3px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    padding: 14px;
+    border-radius: 2px;
+    height: 80%;
+    }
+    
+mat-hint{
+    font-family: 'Courier New', Courier, monospace;
+}
+.topContainer button, .cancelBtn > button{
+    display: inline-block;
+    margin: 1px;
+    padding : 5px;   
+    outline: none; 
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+        /* Round corners button */
+    border-radius: 25px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.topContainer button:hover, .cancelBtn > button:hover{
+    background-color: rgb(53, 53, 53);
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid rgb(53, 53, 53);
+}
+
+.mainContainer>button{
+    display: inline-block;
+    margin: 2px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: 500;
+    width: 180px;
+    border: 1px solid #000000;
+    padding: 14px 0;
+    border-radius: 6px;
+    transition: .2s linear;
+    }
+    
+    .mainContainer>button:hover,
+    .visited{
+    background-color: #000000;
+    color: #fff;
+    }
+    

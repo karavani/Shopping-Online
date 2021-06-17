@@ -1,0 +1,5 @@
+
+<div [ngClass]="status ? 'none' : 'top'"><img src={{imageURL}} alt=""></div>
+<div class="main"><h3>{{productName}}{{quantity}} {{price}}</h3><br>
+<button *ngIf="!this.cartsService.isInOrder" id='moreInfoBtn' (click)="myClick()"><i class="{{iClassName}}"></i>{{btnValue}}</button></div>
+

@@ -1,0 +1,63 @@
+<section>
+    <div class="topContainer">
+        <h1>Product Management</h1>
+        <div (mouseover)="hintDisplay=true" (mouseout)="hintDisplay=false">
+            <mat-hint *ngIf="hintDisplay">new product</mat-hint><br>
+            <button (click)="addNewProduct()"><i class="fas fa-plus"></i></button>
+        </div>
+    </div><br>
+    <div class="mainContainer">
+        <mat-hint [hidden]="this.productsService.isManagedMod">-add or update products to open managmenet form-
+        </mat-hint>
+
+        <div [hidden]="!this.productsService.isManagedMod">
+            <form [formGroup]='productManagementForm' (ngSubmit)='submit()'>
+
+                <div>
+                    <mat-form-field>
+                        <input matInput placeholder="product name"
+                            [(ngModel)]="this.productsService.product.productName" formControlName='productName'>
+                        <mat-error>
+                            Product name requierd
+                        </mat-error>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <select matNativeControl placeholder="category" formControlName="categoryID">
+                            <option *ngFor="let category of this.productsService.categories"
+                                [selected]="this.productsService.product.categoryID == category.categoryID"
+                                [value]="category.categoryID">{{category.categoryName}}</option>
+                        </select>
+                    </mat-form-field><br>
+                    <mat-form-field>
+                        <input matInput [(ngModel)]="this.productsService.product.price" type="number"
+                            placeholder="price" formControlName='price' [min]="1">
+                        <mat-hint>
+                            price in ILS₪
+                        </mat-hint>
+                        <mat-error>
+                            Product price requierd
+                        </mat-error>
+                    </mat-form-field><br>
+                </div>
+                <br>
+                <mat-form-field>
+                    <input matInput [(ngModel)]="this.productsService.product.imageURL" placeholder="imageURL"
+                        formControlName='imageURL'>
+                    <mat-error>
+                        image URL requierd
+                    </mat-error>
+                </mat-form-field><br>
+                <div>
+                    <button mat-raised-button [disabled]="productManagementForm.invalid" color='primary'>Save</button>
+                    <br>
+                    <hr>
+                </div>
+            </form>
+            <div class="cancelBtn"><button (click)="cancel()">cancel</button></div>
+        </div>
+
+    </div>
+    <div class="lowContainer">
+
+    </div>
+</section>

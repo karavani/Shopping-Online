@@ -1,0 +1,31 @@
+div{
+    padding: 10px;
+}
+div> h1{
+    padding: 2px;
+    font-size: 2vw;
+
+}
+div > h4{
+    font-size: 1vw;
+
+}
+.text-wrapper{
+    display: inline-flex;
+    font-size: 1vw;
+}  
+
+  /* On screens that are 768px or less, set the background color to olive */
+  @media screen and (max-width: 768px) {
+    div> h1{
+        padding: 2px;
+        font-size: x-large;
+    }
+    div > h4{
+        font-size: larger;
+    }
+    .text-wrapper{
+        display: inline-flex;
+        font-size: larger;
+    }     
+    }

@@ -1,0 +1,42 @@
+div .registerContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 40%;
+	height: 50%;
+	margin: 10px;
+	padding: 15px;
+}
+.btn-form>button{
+	float: right;
+}
+mat-form-field, .btn-form{
+	padding: 0px 6px;
+	background-color: white;
+	width: 50%;
+	font-size: larger;
+	padding: 10px;
+  }
+:host{
+	display: flex;
+	flex-direction: column;
+
+}
+form {	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+h1{
+    color: gray;
+    font-family: 'Akaya Telivigala', cursive;
+}
+.steps{
+    color: rgb(0, 0, 0);
+}
+.currentStep{
+    color: rgb(68, 164, 63);
+    font-size: larger;
+}

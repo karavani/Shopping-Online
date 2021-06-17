@@ -1,0 +1,54 @@
+<div class="parent">
+    <form [formGroup]="orderFormGroup" (ngSubmit)="order()">
+        <mat-form-field (dblclick)="onDblGetCity()" appearance="fill">
+            <mat-label>City</mat-label>
+            <mat-select matNativeControl formControlName="city">
+                <mat-option *ngFor="let city of cities" [value]='city'>{{city}}</mat-option>
+            </mat-select><br>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Street" name="street" (dblclick)="onDblGetStreet()"
+                formControlName="street"><br>
+            <mat-error *ngIf='street.invalid && street.touched'>
+                Your street does not look right
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Choose a delivery date</mat-label>
+            <input matInput [matDatepickerFilter]="busyDaysFilter" [matDatepicker]="picker" [min]="minDate"
+                formControlName="deliveryDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker [touchUi]="isMobile" #picker></mat-datepicker>
+            <mat-error *ngIf='!deliveryDate.hasError("requierd") && deliveryDate.touched'>
+                Delivery date required
+            </mat-error>
+            <mat-error *ngIf='deliveryDate.hasError("weekend") && deliveryDate.touched'>
+                we're dont deliver at weekends
+            </mat-error>
+            <mat-error *ngIf='!deliveryDate.hasError("busyDays") && deliveryDate.touched'>
+                we're occupied for deliver that day
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Credit Card Number" name="creditCard"
+                formControlName="creditCard"><br>
+            <mat-error *ngIf='creditCard.invalid && creditCard.touched'>
+                Your credit card does not look right
+            </mat-error>
+        </mat-form-field>
+        <div class="btn-form">
+            <button mat-raised-button [disabled]="orderFormGroup.invalid" color="primary">Submit</button>
+        </div>
+    </form>
+</div>
+<div #myModal class="container">
+    <div class="content">
+        <div class="top">
+            <button (click)="close()">x</button>
+            <h1>Your order completed!</h1>
+        </div>
+        <div class="main">
+            <a download="receipt.txt" [href]="this.url">click here to download your receipt</a>
+        </div>
+    </div>
+</div>

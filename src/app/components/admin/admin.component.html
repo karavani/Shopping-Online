@@ -1,0 +1,22 @@
+<section>
+    <aside>
+        <app-product-management></app-product-management>
+    </aside>
+    <main>
+        <div class="topContainer" id="style-1">
+            <a id="allProducts" (click)="getAllProducts()"
+                [ngClass]="{visited :  this.productsService.selectedCategory == 0} ">All products</a>
+            <div *ngFor="let category of this.productsService.categories"> 
+                <a [ngClass]="{visited : category.categoryID == this.productsService.selectedCategory} "
+                    id="{{category.categoryID}}"
+                    (click)="getProductsByCategory(category.categoryID)">{{category.categoryName}}</a></div>
+        </div>
+        <div class="productsContainer" id="style-1">
+            <div class="productCard" *ngFor="let product of this.productsService.products | sortByCategoryPipe">
+                <app-product-card productName={{product.productName}} price={{product.price}}₪
+                    imageURL={{product.imageURL}} iClassName="fas fa-pencil-alt" (childEvent)="updateProduct(product)">
+                </app-product-card>
+            </div>
+        </div>
+    </main>
+</section>

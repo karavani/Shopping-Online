@@ -1,0 +1,87 @@
+section{
+display: flex;
+width: 100%;
+height: 100%;
+}
+
+main{
+display: flex;
+flex-direction: column;
+width: 60%;
+height: auto;
+padding: 10px;
+}
+
+#style-1::-webkit-scrollbar
+{
+	width: 8px;
+    height: 8px;
+	background-color: #f5f5f57e;
+}
+
+#style-1::-webkit-scrollbar-thumb
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+
+.topContainer{
+    display: flex;
+    flex-wrap: wrap; 
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+    margin: 5px;
+    justify-content: space-evenly;
+    height: 100px;
+    overflow-x: scroll;
+}
+
+.productsContainer{
+display: flex;
+flex-wrap: wrap; 
+align-items: center;
+margin: 3px;
+padding: 10px;
+justify-content: space-evenly;
+height: 450px;
+overflow-x: hidden;
+overflow-y: scroll;
+}
+
+aside{
+width: 40%;
+height: 100%;
+background-color: rgb(168, 57, 57);
+}
+
+.productCard{
+text-transform:capitalize;
+display: inline-block; 
+width: 150px;
+height: 150px;
+padding: 2px;
+margin: 3px;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    margin: 1px;
+    color: #48dbfb;
+    font-size: 15px;
+    font-weight: 500;
+    width: 180px;
+    border: 1px solid #48dbfb;
+    padding: 10px 0;
+    border-radius: 6px;
+    transition: .2s linear;
+}
+
+a:hover,
+.visited{
+background-color: #48dbfb;
+color: #fff;
+}

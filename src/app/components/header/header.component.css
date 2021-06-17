@@ -1,0 +1,119 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    overflow:hidden
+}
+
+h1{
+    position: relative;
+    float: center;
+    font-size: 5vh;
+    text-shadow: black 2px 2px 2px;
+    font-family: 'Original Surfer', cursive;
+}
+input,button,.userDetails > a   {
+        display: inline-block;
+        margin: 1px;
+        padding : 5px;   
+        outline: none; 
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+            /* Round corners button */
+        border-radius: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    }
+    .userDetails > a:hover, button:hover{
+        background-color: rgb(53, 53, 53);
+        color: #fff;
+        cursor: pointer;
+        border: 1px solid rgb(53, 53, 53);
+    }
+
+.container .column {
+    position: relative;
+    float: left;
+}
+.hidden{
+    display: none;
+}
+.center {
+    width: 60%;
+    padding: 10px;
+    margin: 10px;
+}
+
+
+.left {
+    width: 0%;
+}
+
+.searchContainer{
+    font-size: 120%;
+    width: 100%;
+    position: relative;
+    padding: 2px;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    color: black;
+    margin: 0px;
+    height: auto;
+}
+.right >.userDetails{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.right >.userDetails > p{
+    margin: 4px !important;
+}
+a{
+    text-align: center;
+    text-decoration: none;
+    font-size: smaller;
+    color: black;
+    background-color: whitesmoke;
+    border: black 0.5px solid;
+    border-radius: 25px;
+}
+
+ /* On screens that are 600px or less, set the background color to olive */
+ @media screen and (max-width: 768px) {
+    .right{
+        width: 45%;
+    }
+    .right >.userDetails{
+        width: 70%;
+    }
+    .center, .center > h1 {
+        font-size: 30px;
+        width: 55%;
+    }
+    }
+
+
+     /* On screens that are 600px or less, set the background color to olive */
+ @media screen and (max-width: 630px) {
+    .center, .center > h1 {
+        font-size: 30px;
+        width: 55%;
+    }
+    .searchContainer > input{
+        font-size: 80%;
+        width: 70%;
+    }
+        .searchContainer >button{
+            font-size: 80%;
+        
+    }
+    }
+

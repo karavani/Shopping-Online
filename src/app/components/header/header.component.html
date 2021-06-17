@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="left">
+    </div>
+    <div class="center">
+        <h1><i class="fab fa-opencart"></i> SuperMarket Online</h1>
+
+    </div>
+    <div class="right">
+        <div class="userDetails" *ngIf="this.usersService.userName !== '' ">
+            <p>hello {{this.usersService.userName}}!</p>
+            <a routerLink="/home" (click)="logout()">logout</a>
+        </div>
+        <div class="searchContainer">
+            <input #myInput type="text" placeholder="search for products" [(ngModel)]="searchText">
+            <button (click)="search()"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</div>
